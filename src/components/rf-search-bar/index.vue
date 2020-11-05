@@ -15,7 +15,7 @@
 				</view>
 			</view>
 			<!-- 扫一扫 -->
-			<view class="addr">
+			<view class="addr" v-if="false">
 				<text class="iconfont" @tap.stop="link" :class="[icon]"></text>
 			</view>
 		</view>

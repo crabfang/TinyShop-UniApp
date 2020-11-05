@@ -67,7 +67,7 @@
 					</view>
 				</rf-swiper-slide>
 				<!-- 爆款推荐 -->
-				<view class="hot-recommend">
+				<view v-if="false" class="hot-recommend">
 					<view class="left">
 						<image class="hot-recommend-image" @tap="navTo(hotRecommendList[0].url)" :src="hotRecommendList[0].icon"></image>
 					</view>
@@ -78,6 +78,7 @@
 				</view>
 				<!--新品上市-->
 				<rf-floor-index
+					v-if="newProductList.length > 0"
 					icon="iconxinpin2"
 					:list="newProductList"
 					@toBanner="indexTopToDetailPage"
@@ -90,6 +91,7 @@
 				/>
 				<!--推荐商品-->
 				<rf-floor-index
+					v-if="recommendProductList.length > 0"
 					icon="icontuijian21"
 					:list="recommendProductList"
 					:header="{ title: '推荐商品', desc: 'Recommend Product' }"
@@ -104,6 +106,7 @@
 				/>
 				<!--热门商品-->
 				<rf-floor-index
+					v-if="hotProductList.length > 0"
 					icon="iconremen2"
 					:list="hotProductList"
 					:header="{ title: '热门商品', desc: 'Hot Product' }"

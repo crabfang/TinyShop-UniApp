@@ -1,6 +1,6 @@
 export default {
 	// app应用名称
-	appName: 'RF商城',
+	appName: '51Store',
 
 	// 购物车在tab的位置
 	cartIndex: 3,
@@ -257,7 +257,7 @@ export default {
 				{
 					title: '官方',
 					name: 'rf',
-					color: '#fa436a',
+					color: '#1E82D6',
 					tabList: [
 						'/static/tab-home-rf.png',
 						'/static/tab-cate-rf.png',
