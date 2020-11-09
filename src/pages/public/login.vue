@@ -178,16 +178,25 @@
 					</block>
 					<block v-if="tabCurrentIndex === 1">
 						<view class="login-type-form">
-							<view class="input-item">
+							<view class="input-item input-item-sms-code">
 								<text class="iconfont icondianhua" :class="'text-' + themeColor.name"></text>
-								<input
-									class="login-type-input"
-									type="number"
-									name="mobile"
-									v-model="registerParams.mobile"
-									placeholder="请输入手机号码"
-									maxlength="11"
-								/>
+								<view class="input-wrapper">
+									<view class="rf-input-wrapper">
+										<input
+											class="login-type-input"
+											type="number"
+											name="mobile"
+											v-model="registerParams.mobile"
+											placeholder="请输入手机号码"
+											maxlength="11"
+										/>
+									</view>
+									<button 
+										v-if="false"
+										class="sms-code-btn"
+										open-type="getPhoneNumber" 
+										bindgetphonenumber="getPhoneNumber">获取手机号</button>
+								</view>
 							</view>
 							<view class="input-item input-item-sms-code">
 								<text class="iconfont iconyanzhengma" :class="'text-' + themeColor.name"></text>
@@ -204,8 +213,7 @@
 									<button
 										class="sms-code-btn"
 										:disabled="smsCodeBtnDisabled"
-										@tap.stop="getSmsCode('register', registerParams.mobile)"
-									>
+										@tap.stop="getSmsCode('register', registerParams.mobile)">
 										<text v-if="!smsCodeBtnDisabled">获取验证码</text>
 										<text v-else class="sms-code-resend">{{
 											`重新发送 (${codeSeconds})`
@@ -294,7 +302,7 @@ export default {
 			btnLoading: false,
 			reqBody: {},
 			codeSeconds: 0, // 验证码发送时间间隔
-			loginByPass: true,
+			loginByPass: false,
 			smsCodeBtnDisabled: true,
 			userInfo: null,
 			loginBg: this.$mAssetsPath.loginBg,
@@ -399,6 +407,11 @@ export default {
 		// 返回主页
 		toHome() {
 			this.$mRouter.reLaunch({ route: '/pages/index/index' });
+		},
+		getPhoneNumber (e) {
+			console.log(e.detail.errMsg)
+			console.log(e.detail.iv)
+			console.log(e.detail.encryptedData)
 		},
 		// 提交表单
 		async toLogin() {

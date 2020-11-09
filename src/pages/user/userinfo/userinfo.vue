@@ -91,6 +91,10 @@
 				<text class="tit">邮　箱</text>
 				<input v-model="profileInfo.email" placeholder="请输入您的邮箱" />
 			</view>
+			<view class="input-item">
+				<text class="tit">地  址</text>
+				<view class="date" style="background: none;" @click="chooseAddress()">{{profileInfo.address || '选择地址'}}</view>
+			</view>
 			<button
 				class="confirm-btn"
 				:class="'bg-' + themeColor.name"
@@ -192,6 +196,19 @@ export default {
 		// 监听性别更改
 		handleGenderChange(e) {
 			this.profileInfo.gender = e.detail.value;
+		},
+		chooseAddress() {
+			uni.chooseLocation({
+			    success: res => {
+					this.profileInfo.address = res.address
+					this.profileInfo.address_latitude = res.latitude
+					this.profileInfo.address_longitude = res.longitude
+			        console.log('位置名称：' + res.name);
+			        console.log('详细地址：' + res.address);
+			        console.log('纬度：' + res.latitude);
+			        console.log('经度：' + res.longitude);
+			    }
+			});
 		},
 		// 数据初始化
 		initData() {

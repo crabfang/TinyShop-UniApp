@@ -6,6 +6,7 @@
 			title="扫一扫"
 			icon="iconsaomiao"
 			@tab="tabClick"
+			:merchantShow="true"
 			:categoryList="categoryList"
 			:merchantData="merchantData"
 			:placeholder="hotSearchDefault"

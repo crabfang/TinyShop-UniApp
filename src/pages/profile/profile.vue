@@ -24,7 +24,8 @@
 			</view>
 			<!--vip信息-->
 			<view class="vip-card-box">
-				<view class="b-btn" @tap="navTo('/pages/user/account/level')">
+				<button class="b-btn" v-if="isLeader" open-type="share" id="leader_invite">{{inviteText}}</button>
+				<view class="b-btn" v-else @tap="navTo('/pages/user/account/level')">
 					{{ userInfo.memberLevel | filterMemberLevel }}
 				</view>
 				<view class="tit">
@@ -176,6 +177,7 @@
 							</view>
 							<button
 								class="share-btn"
+								id="normal_share"
 								open-type="share"
 								@tap="share"
 								v-else
@@ -236,7 +238,9 @@ export default {
 			footPrintList: [], // 足迹列表
 			loading: true,
 			appName: this.$mSettingConfig.appName,
-			hasLogin: false
+			hasLogin: false,
+			inviteText: "邀请惠员",
+			isLeader: false
 		};
 	},
 	filters: {
@@ -278,7 +282,15 @@ export default {
     }
   },
 	// 小程序分享
-	onShareAppMessage() {
+	onShareAppMessage(params) {
+		var targetId = params.target.id
+		console.log("share: " + JSON.stringify(params))
+		if(targetId == "leader_invite") {
+			return {
+			title: `${this.userInfo.nickname}惠长邀请你一起来惠省钱`,
+			path: `/pages/public/register?promo_code=${this.userInfo.promo_code}`
+		};
+		}
 		return {
 			title: `欢迎来到${this.appName}`,
 			path: '/pages/index/index'
@@ -348,6 +360,7 @@ export default {
 				.then(async r => {
 					this.loading = false;
 					this.userInfo = r.data;
+					this.isLeader = this.userInfo.current_level == "50"
 					await this.setCartNum(r.data.cart_num);
 					await this.initNotifyNum();
 					// 获取足迹列表

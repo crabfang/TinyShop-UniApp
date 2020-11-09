@@ -6,6 +6,8 @@
  */
 // 首页列表
 const indexList = '/tiny-shop/v1/index/index';
+
+const nearList = '/tiny-shop/v1/index/nearList';
 // 产品分类列表
 const productCate = '/tiny-shop/v1/product/cate/index';
 // 首页推荐分类
@@ -95,6 +97,7 @@ const thirdPartyQrCode = '/tiny-shop/v1/third-party/qr-code';
 
 export {
 	indexList,
+	nearList,
 	productCate,
 	productCateList,
 	productList,

@@ -2,7 +2,7 @@
 	<view class="rf-search-bar" :class="'bg-' + themeColor.name">
 		<view
 			class="header"
-			:style="{width:merchantShow ? '100vw' : width+'px', marginTop: merchantShow ? 0 : inputTop+'px'}"
+			:style="{width:merchantShow ? '100vw' : width+'px', marginTop: merchantShow ? (40 + inputTop)+'px' : inputTop+'px'}"
 		>
 			<!-- 搜索框 -->
 			<view class="input-box" @tap="toSearch">
@@ -15,7 +15,7 @@
 				</view>
 			</view>
 			<!-- 扫一扫 -->
-			<view class="addr" v-if="false">
+			<view class="addr">
 				<text class="iconfont" @tap.stop="link" :class="[icon]"></text>
 			</view>
 		</view>
@@ -94,6 +94,7 @@
 			};
 		},
 		created() {
+			console.log("cfLog: " + JSON.stringify(this.$mSettingConfig))
 			let obj = {};
 			// #ifdef MP-WEIXIN
 			// eslint-disable-next-line
@@ -193,7 +194,8 @@
 		}
 	};
 </script>
-<style lang="scss">.rf-search-bar {
+<style lang="scss">
+.rf-search-bar {
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -256,7 +258,7 @@
 			position: relative;
 			display: flex;
 			align-items: center;
-			margin: 6upx 0 0 $spacing-base;
+			margin: 0 0 10upx $spacing-base;
 			.wrapper {
 				display: flex;
 				align-items: center;
