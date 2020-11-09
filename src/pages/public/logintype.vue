@@ -156,6 +156,7 @@
 											'wechatUserInfo',
 											JSON.stringify(_this.user_info)
 										);
+										
 										_this.$mRouter.push({ route: '/pages/public/login' });
 									} else {
 										this.btnLoading = false;
@@ -309,8 +310,15 @@
 											'wechatUserInfo',
 											JSON.stringify(_this.user_info)
 										);
+										var query = {
+											"type": 1
+										}
+										if(_this.promoCodeParams.promo_code) {
+											query["promo_code"] = _this.promoCodeParams.promo_code
+										}
 										_this.$mRouter.push({
-											route: '/pages/public/login'
+											route: '/pages/public/login',
+											query: query
 										});
 									}
 								}

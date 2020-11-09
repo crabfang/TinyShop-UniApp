@@ -327,6 +327,7 @@ export default {
 		}
 	},
 	onLoad(options) {
+		console.log("login: " + options.promo_code)
 		this.tabCurrentIndex = parseInt(options.type || 0, 10);
 		const time =
 			moment().valueOf() / 1000 - uni.getStorageSync('loginSmsCodeTime');
@@ -540,11 +541,33 @@ export default {
 					this.$mHelper.toast('恭喜您注册成功');
 					uni.setStorageSync('loginMobile', this.reqBody['mobile']);
 					uni.setStorageSync('loginPassword', this.reqBody['password']);
-					this.$mRouter.push({ route: '/pages/public/login' });
+					this.autoLogin();
 				})
 				.catch(() => {
 					this.btnLoading = false;
 				});
+		},
+		async autoLogin() {
+			this.loginParams.mobile = uni.getStorageSync('loginMobile') || '';
+			this.loginParams.password = uni.getStorageSync('loginPassword') || '';
+			this.reqBody['mobile'] = this.loginParams['mobile'];
+			this.reqBody['password'] = this.loginParams['password'];
+			
+			let loginApi = loginByPass;
+			let cheRes = this.$mGraceChecker.check(
+					this.reqBody,
+					this.$mFormRule.loginByPassRule
+				);
+			if (!cheRes) {
+				this.$mHelper.toast(this.$mGraceChecker.error);
+				return;
+			}
+			this.reqBody.group = this.$mHelper.platformGroupFilter();
+			const backUrl = uni.getStorageSync('backToPage');
+			if (backUrl.indexOf('promo_code') !== -1) {
+				this.reqBody.promo_code = JSON.parse(backUrl)['query']['promo_code'];
+			}
+			this.handleLogin(this.reqBody, loginApi);
 		}
 	}
 };

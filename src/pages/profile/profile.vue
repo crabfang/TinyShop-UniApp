@@ -24,7 +24,7 @@
 			</view>
 			<!--vip信息-->
 			<view class="vip-card-box">
-				<button class="b-btn" v-if="isLeader" open-type="share" id="leader_invite">{{inviteText}}</button>
+				<button class="b-btn b-btn-invite" v-if="isLeader" open-type="share" id="leader_invite">{{inviteText}}</button>
 				<view class="b-btn" v-else @tap="navTo('/pages/user/account/level')">
 					{{ userInfo.memberLevel | filterMemberLevel }}
 				</view>
@@ -287,8 +287,8 @@ export default {
 		console.log("share: " + JSON.stringify(params))
 		if(targetId == "leader_invite") {
 			return {
-			title: `${this.userInfo.nickname}惠长邀请你一起来惠省钱`,
-			path: `/pages/public/register?promo_code=${this.userInfo.promo_code}`
+			title: `${this.userInfo.nickname}邀请你一起来惠省钱`,
+			path: `/pages/public/login?type=1&promo_code=${this.userInfo.promo_code}`
 		};
 		}
 		return {
@@ -566,6 +566,9 @@ page {
 				border-radius: 20px;
 				background: linear-gradient(to left, #f9e6af, #ffd465);
 				z-index: 1;
+			}
+			.b-btn-invite{
+				width: 150upx;
 			}
 			.tit {
 				font-size: $font-base + 2upx;
