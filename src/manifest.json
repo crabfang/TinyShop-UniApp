@@ -202,7 +202,8 @@
     },
     "h5" : {
         "router" : {
-            "mode" : "history"
+            "mode" : "history",
+            "base" : "./"
         },
         // history模式地址不带#
         "async" : {
@@ -217,6 +218,10 @@
         },
         "uniStatistics" : {
             "enable" : true
+        },
+        "title" : "惠省钱",
+        "devServer" : {
+            "https" : true
         }
     },
     //页面js加载超时时间（超时后展示 error 对应的组件）
