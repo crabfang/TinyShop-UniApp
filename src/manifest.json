@@ -1,7 +1,7 @@
 {
-    "name" : "51Store",
+    "name" : "惠省钱",
     "appid" : "__UNI__B5319B0", // 自行更换uniapp appid 可登录查看uniapp提供的用户统计 https://tongji.dcloud.net.cn/
-    "description" : "51Store",
+    "description" : "惠省钱商城",
     "versionName" : "1.0.0",
     "versionCode" : 1,
     "transformPx" : false,
@@ -29,7 +29,6 @@
             "VideoPlayer" : {},
             "OAuth" : {},
             "Payment" : {},
-            "Push" : {},
             "Share" : {}
         },
         /* 模块配置 */
@@ -80,8 +79,19 @@
                 "push" : {
                     "unipush" : {}
                 },
-                "share" : {},
-                "oauth" : {}
+                "share" : {
+                    "weixin" : {
+                        "appid" : "",
+                        "UniversalLinks" : ""
+                    }
+                },
+                "oauth" : {
+                    "weixin" : {
+                        "appid" : "",
+                        "appsecret" : "",
+                        "UniversalLinks" : ""
+                    }
+                }
             },
             "icons" : {
                 "android" : {
@@ -222,7 +232,8 @@
         "title" : "惠省钱",
         "devServer" : {
             "https" : true
-        }
+        },
+        "domain" : "h5.huisq.store"
     },
     //页面js加载超时时间（超时后展示 error 对应的组件）
     "mp-qq" : {

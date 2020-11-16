@@ -26,9 +26,9 @@
     "dev:mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch",
     "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js",
     "lint:fix": "eslint --ext .js,.vue src -c .eslintrc.js --fix",
-		"release": "release-it",
-		"vue:lint": "vue-cli-service lint",
-		"vue:lintfix": "vue-cli-service lint --fix"
+    "release": "release-it",
+    "vue:lint": "vue-cli-service lint",
+    "vue:lintfix": "vue-cli-service lint --fix"
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.0-28620200814004",
@@ -50,7 +50,8 @@
     "sass": "^1.24.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.6.11",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@dcloudio/uni-cli-shared": "^2.0.0-28620200814004",

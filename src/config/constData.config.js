@@ -1,6 +1,6 @@
 export default {
 	// app应用名称
-	appName: '51Store',
+	appName: '惠省钱',
 
 	// 购物车在tab的位置
 	cartIndex: 3,

@@ -6,7 +6,7 @@
 			title="扫一扫"
 			icon="iconsaomiao"
 			@tab="tabClick"
-			:merchantShow="true"
+			:merchantShow="merchantShow"
 			:categoryList="categoryList"
 			:merchantData="merchantData"
 			:placeholder="hotSearchDefault"
@@ -386,6 +386,7 @@
 			// 首页参数赋值
 			initIndexData(data) {
 				this.announceList = data.announce;
+				console.log("initIndexData:" + this.announceList.length)
 				this.productCateList = data.cate;
 				this.categoryList = [{ id: 0, title: '首页' }, ...this.productCateList];
 				this.carouselList = data.adv;
