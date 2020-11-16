@@ -3,7 +3,7 @@
 		<!--广告图-->
 		<view
 			class="banner"
-			v-if="banner!=null"
+			v-if="banner.cover"
 			@tap="toBanner(banner)"
 		>
 			<image :src="banner.cover" mode="aspectFill" />
@@ -109,7 +109,6 @@ export default {
 		},
 		// banner 跳转页
 		toBanner(item) {
-			console.log("toBanner:" + this.bannerShow)
 			// this.$emit('toBanner', item);
 		},
 		// 列表 跳转页

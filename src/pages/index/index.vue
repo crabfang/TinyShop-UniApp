@@ -152,7 +152,7 @@
 		<!--页面加载动画-->
 		<rfLoading isFullScreen :active="loading"></rfLoading>
 		<rf-back-top :scrollTop="scrollTop"></rf-back-top>
-		<rf-back-home></rf-back-home>
+<!--		<rf-back-home></rf-back-home>-->
 	</view>
 </template>
 <script>
@@ -386,7 +386,6 @@
 			// 首页参数赋值
 			initIndexData(data) {
 				this.announceList = data.announce;
-				console.log("initIndexData:" + this.announceList.length)
 				this.productCateList = data.cate;
 				this.categoryList = [{ id: 0, title: '首页' }, ...this.productCateList];
 				this.carouselList = data.adv;

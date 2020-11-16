@@ -94,7 +94,6 @@
 			};
 		},
 		created() {
-			console.log("cfLog: " + JSON.stringify(this.$mSettingConfig))
 			let obj = {};
 			// #ifdef MP-WEIXIN
 			// eslint-disable-next-line
