@@ -27,7 +27,6 @@
         },
         "modules" : {
             "VideoPlayer" : {},
-            "OAuth" : {},
             "Payment" : {},
             "Share" : {}
         },
@@ -85,13 +84,7 @@
                         "UniversalLinks" : ""
                     }
                 },
-                "oauth" : {
-                    "weixin" : {
-                        "appid" : "",
-                        "appsecret" : "",
-                        "UniversalLinks" : ""
-                    }
-                }
+                "oauth" : {}
             },
             "icons" : {
                 "android" : {
@@ -187,7 +180,7 @@
     "mp-weixin" : {
         /* 小程序特有相关 */
         "usingComponents" : true,
-        "appid" : "wx9d1d5469825b596e",
+        "appid" : "wx1de3deeb3d3ff021",
         // 这里添加微信小程序appid
         "setting" : {
             "urlCheck" : true,

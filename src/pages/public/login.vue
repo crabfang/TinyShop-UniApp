@@ -538,10 +538,12 @@ export default {
 				.post(registerByPass, this.reqBody)
 				.then(() => {
 					this.btnLoading = false;
-					this.$mHelper.toast('恭喜您注册成功');
+					this.$mHelper.toast('恭喜您注册成功，即将登陆');
 					uni.setStorageSync('loginMobile', this.reqBody['mobile']);
 					uni.setStorageSync('loginPassword', this.reqBody['password']);
-					this.autoLogin();
+					setTimeout(() => {
+						this.autoLogin();
+					}, 1000)
 				})
 				.catch(() => {
 					this.btnLoading = false;

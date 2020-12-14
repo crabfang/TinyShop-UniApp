@@ -275,11 +275,11 @@ export default new Setting(
 	false,	// 是否显示首页扫一扫按钮
 	true,	// 开启直播入口
 	true,	// 是否开启loading 加载
-	'rotatePlane', // loading 加载风格
+	'shrinkRect', // loading 加载风格
 	true,
 	'blue',	// 商城主题
 	false,	// 是否开启充值入口
-	false, // 是否开启主页分类
+	true, // 是否开启主页分类
 	true, // 是否开放站点
 	'为您挑选了一个好物',	// 海报图片（无此功能）
 	'roundness',	// 海报头像显示风格（无此功能）

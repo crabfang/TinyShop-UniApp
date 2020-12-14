@@ -2,7 +2,7 @@
 	<view class="rf-category">
 		<!--顶部搜索导航栏-->
 		<view class="input-box">
-			<view class="iconfont iconzhuyedefuben"  :class="'text-'+themeColor.name" @tap.stop="toHome"></view>
+			<view class="iconfont iconzhuyedefuben" :class="'text-'+themeColor.name" @tap.stop="toHome" v-if="false" />
 			<input
 				@tap.stop="toSearch"
 				disabled

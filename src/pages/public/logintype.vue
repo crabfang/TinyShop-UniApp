@@ -124,6 +124,10 @@
 			/*  #endif  */
 			// 用户多次点击授权登录会生成多个code 去最后一个code
 			this.code = options.code && options.code.split(',')[options.code.split(',').length - 1];
+			if(this.code == undefined) {
+				let codeQuerys = this.getUrlCode("code")
+				this.code = codeQuerys[codeQuerys.length - 1]
+			}
 			// 如果不是第一次进来 就不需要强制阅读协议
 			if (!uni.getStorageSync('notFirstTimeLogin')) {
 				if (!this.appAgreementDefaultSelect) {
@@ -157,7 +161,16 @@
 											JSON.stringify(_this.user_info)
 										);
 										
-										_this.$mRouter.push({ route: '/pages/public/login' });
+										var query = {
+											"type": 1
+										}
+										if(_this.promoCodeParams.promo_code) {
+											query["promo_code"] = _this.promoCodeParams.promo_code
+										}
+										_this.$mRouter.push({
+											route: '/pages/public/login',
+											query: query
+										});
 									} else {
 										this.btnLoading = false;
 									}
@@ -190,6 +203,32 @@
 			}
 		},
 		methods: {
+			getUrlCode (name) {
+				// return decodeURIComponent((regExp)[regExp.length - 1].replace(/\+/g, '%20')) || null
+				var curPageUrl=location.href; //页面URL的查询部分字符串
+				var arrPara = new Array(); //参数数组。数组单项为包含参数名和参数值的字符串，如“para=value”
+				var arrVal = new Array(); //参数值数组。用于存储查找到的参数值
+			 
+				if(curPageUrl!=""){
+					var index = 0;
+					curPageUrl = curPageUrl.split("?")[1]; //去除开头的“?”
+					arrPara = curPageUrl.split("&");
+			 
+					for(let i in arrPara){
+						var paraPre = name + "="; //参数前缀。即参数名+“=”，如“para=”
+						if(arrPara[i].indexOf(paraPre)==0&& paraPre.length<arrPara[i].length){
+							arrVal[index]=decodeURI(arrPara[i].substr(paraPre.length)); //顺带URI解码避免出现乱码
+							index++;
+						}
+					}
+				}
+			 
+				if(arrVal.length==0){
+					return null;
+				}else{
+					return arrVal;
+				}
+			},
 			// 通用跳转
 			navTo(route) {
 				if (!this.appAgreementDefaultSelect) {
@@ -227,7 +266,7 @@
 					const href = window.location.href;
 					window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?
 														appid=${this.$mConfig.weixinAppId}&
-														redirect_uri=${href}&
+														redirect_uri=${encodeURIComponent(href)}&
 														response_type=code&
 														scope=snsapi_userinfo&
 														state=STATE#wechat_redirect`;

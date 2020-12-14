@@ -22,8 +22,7 @@
 							:info="carouselList.index_top"
 							mode="nav"
 							:current="current"
-							field="title"
-						>
+							field="title">
 							<swiper @change="handleDotChange" autoplay="true">
 								<swiper-item
 									v-for="(item, index) in carouselList.index_top"
@@ -386,8 +385,11 @@
 			// 首页参数赋值
 			initIndexData(data) {
 				this.announceList = data.announce;
+				this.categoryList = [{ id: 0, title: '首页' }, ...data.cate];
 				this.productCateList = data.cate;
-				this.categoryList = [{ id: 0, title: '首页' }, ...this.productCateList];
+				if(data.cate.length > 10) {
+					this.productCateList = data.cate.slice(0,10)
+				}
 				this.carouselList = data.adv;
 				this.search = data.search;
 				this.share = data.share;
