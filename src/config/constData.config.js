@@ -1,6 +1,6 @@
 export default {
 	// app应用名称
-	appName: '惠省钱',
+	appName: '惠省钱商城',
 
 	// 购物车在tab的位置
 	cartIndex: 3,
@@ -269,7 +269,7 @@ export default {
 				{
 					title: '嫣红',
 					name: 'red',
-					color: '#e54d42',
+					color: '#ea352a',
 					tabList: [
 						'/static/tab-home-red.png',
 						'/static/tab-cate-red.png',

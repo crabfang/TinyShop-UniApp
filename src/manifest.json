@@ -1,5 +1,5 @@
 {
-    "name" : "惠省钱",
+    "name" : "惠省钱商城",
     "appid" : "__UNI__B5319B0", // 自行更换uniapp appid 可登录查看uniapp提供的用户统计 https://tongji.dcloud.net.cn/
     "description" : "惠省钱商城",
     "versionName" : "1.0.0",
@@ -222,7 +222,7 @@
         "uniStatistics" : {
             "enable" : true
         },
-        "title" : "惠省钱",
+        "title" : "惠省钱商城",
         "devServer" : {
             "https" : true
         },

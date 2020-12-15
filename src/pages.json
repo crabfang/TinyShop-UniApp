@@ -663,20 +663,20 @@
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "惠省钱",
+		"navigationBarTitleText": "惠省钱商城",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#f8f8f8"
 	},
 	"tabBar": {
 		"color": "#C0C4CC",
-		"selectedColor": "#0081ff",
+		"selectedColor": "#ea352a",
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
 		"list": [
 			{
 				"pagePath": "pages/index/index",
 				"iconPath": "static/tab-home.png",
-				"selectedIconPath": "static/tab-home-blue.png",
+				"selectedIconPath": "static/tab-home-red.png",
 				"text": "首页"
 			},
 			{

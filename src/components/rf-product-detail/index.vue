@@ -31,8 +31,7 @@
 				<view class="introduce-first-line">
 					<view
 						class="price-box point-box"
-						v-if="product.point_exchange_type == 4"
-					>
+						v-if="product.point_exchange_type == 4">
 						该商品仅需
 						<text class="price">{{ product.point_exchange }} 积分</text>
 					</view>
@@ -44,10 +43,10 @@
 								v-if="product.memberDiscount != [] && product.memberDiscount && product.memberDiscount.discount > 0 && userInfo"
 								:src="vipPrice">
 							</image>
-							<text class="price" :class="'text-' + themeColor.name">{{ moneySymbol }}{{ currentProductPrice }}</text>
+							<cn-money :money="currentProductPrice" :unit="moneySymbol" :size="58" :color="themeColor.color" />
 						</view>
 						<view class="m-price-wrapper" v-if="product.market_price > product.price">
-							价格 <text class="m-price">{{ moneySymbol }}{{ product.market_price }}</text>
+							价格 <cn-money :money="currentProductPrice" :unit="moneySymbol" :size="58" :color="themeColor.color" />
 						</view>
 					</view>
 					<view class="collect" @tap="toFavorite">
@@ -482,16 +481,14 @@
 					<navigator
 						url="/pages/index/index"
 						open-type="switchTab"
-						class="p-b-btn"
-					>
+						class="p-b-btn">
 						<i class="iconfont iconzhuyedefuben"></i>
 						<text>首页</text>
 					</navigator>
 					<navigator
 						url="/pages/cart/cart"
 						open-type="switchTab"
-						class="p-b-btn cart"
-					>
+						class="p-b-btn cart">
 						<i class="iconfont icongouwuche2"></i>
 						<text>购物车</text>
 						<rf-badge
@@ -499,33 +496,31 @@
 							type="error"
 							size="small"
 							class="badge"
-							:text="cartNum"
-						></rf-badge>
+							:text="cartNum"/>
 					</navigator>
-					<view @tap="kefuShow = true" class="p-b-btn">
+					<view @tap="kefuShow = true" class="p-b-btn" v-if="false">
 						<i class="iconfont iconkefu2"></i>
 						<text>客服</text>
 					</view>
 				</view>
 				<view
 					class="action-btn-group"
-					v-if="parseInt(this.currentStock || this.product.stock, 10) > 0"
-				>
+					v-if="parseInt(this.currentStock || this.product.stock, 10) > 0">
 					<button
-						class="action-btn"
-						:class="'bg-' + themeColor.name"
+						class="action-btn,action-btn-border"
+						:class="'bg-' + themeColor.name + '.light'"
+						:style="{borderColor: $mColor.hexToRgbWidthOp(themeColor.color, 0.4)}"
 						:disabled="buyBtnDisabled"
-						@tap="addCart('buy')"
-					>
-						立即购买
+						@tap="addCart('cart')">
+						加入购物车
 					</button>
+					
 					<button
 						:disabled="addCartBtnDisabled"
 						class="action-btn"
-						:class="'bg-' + themeColor.name"
-						@tap="addCart('cart')"
-					>
-						加入购物车
+						:class="'bg-' + themeColor.name + '.highlight'"
+						@tap="addCart('buy')">
+						立即购买
 					</button>
 				</view>
 				<view class="action-btn">
@@ -591,9 +586,10 @@
 	import rfLive from '@/components/rf-live';
 	import { cartItemCount, cartItemCreate } from '@/api/product';
 	import { collectCreate, collectDel, pickupPointIndex, transmitCreate } from '@/api/basic';
-  import { couponReceive, addressList } from '@/api/userInfo';
+	import { couponReceive, addressList } from '@/api/userInfo';
 	import { mapMutations } from 'vuex';
-  export default {
+	import cnMoney from '@/components/cn-money/cn-money.vue';
+	export default {
     name: 'rfProductDetail',
     props: {
 			product: {
@@ -625,7 +621,8 @@
 			rfLive,
 			rfRate,
 			uniTag,
-			rfAttrContent
+			rfAttrContent,
+			cnMoney
 		},
 		data() {
 			return {

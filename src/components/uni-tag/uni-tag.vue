@@ -5,8 +5,7 @@
 			disabled === true || disabled === 'true' ? 'uni-tag--disabled' : '',
 			circle === true || circle === 'true' ? 'uni-tag--circle' : '',
 			mark === true || mark === 'true' ? 'uni-tag--mark' : '',
-			'uni-tag--' + size,
-			inverted ? 'uni-tag--inverted' + ' text-'+themeColor.name : 'bg-'+themeColor.name
+			'uni-tag--' + size
 		]"
 		class="uni-tag"
 		@tap="onClick()"
@@ -79,7 +78,10 @@ export default {
 	/*color: #333;*/
 	border-radius: 6upx;
 	/*background-color: #f8f8f8;*/
-	border: 1px solid #f8f8f8;
+	// border: 1px solid #f8f8f8;
+	border: none;
+	color: #FFFFFF;
+	background-color: rgba($color: #000000, $alpha: 0.3)
 }
 
 .uni-tag--circle {

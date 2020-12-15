@@ -760,7 +760,6 @@
 		font-size: $font-base;
 	}
 	.introduce-first-line {
-
 		padding: $spacing-base $spacing-lg $spacing-sm;
 		display: flex;
 		justify-content: space-between;
@@ -771,6 +770,7 @@
 			.price-first-line {
 				display: flex;
 				align-items: center;
+				font-size: 80upx;
 				.member-level {
 					margin-right: $spacing-sm;
 					width: 120upx;
@@ -802,10 +802,10 @@
 		.collect {
 			width: 60upx;
 			text-align: center;
-			font-size: $font-sm;
-			color: $font-color-light;
+			font-size: 20upx;
+			color: $font-color-base;
 			.iconfont {
-				font-size: $font-lg + 16upx;
+				font-size: 46upx;
 			}
 		}
 	}
@@ -1161,9 +1161,10 @@
 	align-items: center;
 	width:100vw;
 	box-shadow: 0 0 10upx 0 rgba(0, 0, 0, 0.1);
+	padding-top: 10upx;
 	padding-bottom: env(safe-area-inset-bottom);
 	.page-bottom-bth-wrapper {
-		width: 42vw;
+		width: 24vw;
 		display: flex;
 		align-items: center;
 		margin-left: $spacing-sm;
@@ -1180,20 +1181,19 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			font-size: $font-sm;
+			font-size: 20upx;
 			color: $font-color-base;
 			flex: 1;
 			.iconfont {
 				line-height: 1.2;
-				font-size: 48upx;
+				font-size: 40upx;
 				font-weight: 500;
 			}
 		}
 	}
 	.action-btn-group {
 		display: flex;
-		height: 76upx;
-		border-radius: 100px;
+		height: 70upx;
 		overflow: hidden;
 		margin: 0 20upx;
 		position: relative;
@@ -1201,23 +1201,21 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 180upx;
+			width: 300upx;
 			height: 100%;
 			font-size: $font-base;
 			padding: 0;
+			border-radius: 30upx;
 			&:after {
-					content: '';
-					position: absolute;
-					top: 50%;
-					left: 0;
-					border: none;
-					border-right: 1upx solid;
-					transform: translateY(-50%);
-					height: 28upx;
-					width: 0;
+				border: none;
 			}
 		}
 		.action-btn:first-child {
+		}
+		.action-btn-border {
+			border: 1upx double;
+			margin-right: 10upx;
+			background-color: rgba(0, 0, 0, 0);
 			&:after {
 				border: none;
 			}
