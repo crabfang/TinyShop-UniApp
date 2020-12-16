@@ -519,6 +519,7 @@
 						:disabled="addCartBtnDisabled"
 						class="action-btn"
 						:class="'bg-' + themeColor.name + '.highlight'"
+						:style="{backgroudColor: themeColor.color}"
 						@tap="addCart('buy')">
 						立即购买
 					</button>
@@ -663,7 +664,7 @@
 				poster: {},
 				promoCode: '',
 				addressList: [],
-        moneySymbol: this.moneySymbol,
+				moneySymbol: this.moneySymbol,
 				state: 1,
         singleSkuText: this.singleSkuText,
 				thirdPartyQrCodeImg: ''
@@ -741,20 +742,20 @@
 					return Math.floor(val - new Date() / 1000);
 				};
 			},
-			currentProductPrice () {
-        let price;
-        if (this.type === 'buy_now') {
-          if (this.product.memberDiscount && this.product.memberDiscount.length !== 0) {
-            // eslint-disable-next-line
-            this.product.minSkuPrice = this.product.minSkuPrice * (1 - this.product.memberDiscount.discount / 100).toFixed(2);
-            // eslint-disable-next-line
-            this.product.maxSkuPrice = this.product.maxSkuPrice ? (this.product.maxSkuPrice * (1 - this.product.memberDiscount.discount / 100)).toFixed(2) : 0;
-          }
-          // eslint-disable-next-line
-          price = this.currentSkuPrice || ((this.product.maxSkuPrice && (this.product.minSkuPrice !== this.product.maxSkuPrice)) ? (this.product.minSkuPrice + ' ~ ' + this.product.maxSkuPrice) : parseFloat(this.product.minSkuPrice).toFixed(2));
-          return price;
-        }
-        return parseFloat(price || '0').toFixed(2);
+			currentProductPrice() {
+				let price;
+				if (this.type === 'buy_now') {
+				  if (this.product.memberDiscount && this.product.memberDiscount.length !== 0) {
+					// eslint-disable-next-line
+					this.product.minSkuPrice = this.product.minSkuPrice * (1 - this.product.memberDiscount.discount / 100).toFixed(2);
+					// eslint-disable-next-line
+					this.product.maxSkuPrice = this.product.maxSkuPrice ? (this.product.maxSkuPrice * (1 - this.product.memberDiscount.discount / 100)).toFixed(2) : 0;
+				  }
+				  // eslint-disable-next-line
+				  price = this.currentSkuPrice || ((this.product.maxSkuPrice && (this.product.minSkuPrice !== this.product.maxSkuPrice)) ? (this.product.minSkuPrice + ' ~ ' + this.product.maxSkuPrice) : parseFloat(this.product.minSkuPrice).toFixed(2));
+				  return  parseFloat(price || '0');
+				}
+				return parseFloat(price || '0').toFixed(2);
 			}
 		},
     methods: {
