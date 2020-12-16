@@ -2,16 +2,13 @@
 	<view class="rf-search-bar" :class="'bg-' + themeColor.name">
 		<view
 			class="header"
-			:style="{width:merchantShow ? '100vw' : width+'px', marginTop: merchantShow ? (40 + inputTop)+'px' : inputTop+'px'}"
-		>
+			:style="{width:merchantShow ? '100vw' : width+'px', marginTop: merchantShow ? (40 + inputTop)+'px' : inputTop+'px'}">
 			<!-- 搜索框 -->
 			<view class="input-box" @tap="toSearch">
-				<input
-					disabled
-				/>
+				<input disabled />
 				<view class="wrapper">
 					<text class="iconfont iconsousuo2"></text>
-					<text class="keyword">{{ placeholder }}</text>
+					<text class="keyword" style="white-space: nowrap;text-overflow:ellipsis;overflow:hidden;">{{ placeholder }}</text>
 				</view>
 			</view>
 			<!-- 扫一扫 -->
