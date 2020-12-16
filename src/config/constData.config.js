@@ -257,7 +257,7 @@ export default {
 				{
 					title: '官方',
 					name: 'rf',
-					color: '#1E82D6',
+					color: '#ea352a',
 					tabList: [
 						'/static/tab-home-rf.png',
 						'/static/tab-cate-rf.png',

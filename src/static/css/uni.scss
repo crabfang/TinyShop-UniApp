@@ -1192,14 +1192,16 @@
 	}
 	.action-btn-group {
 		display: flex;
-		height: 70upx;
+		height: 76upx;
 		overflow: hidden;
-		margin: 0 20upx;
+		padding-bottom: 4upx;
+		// margin: 0 20upx;
 		position: relative;
 		.action-btn {
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			margin-right: 10upx;
 			width: 300upx;
 			height: 100%;
 			font-size: $font-base;
@@ -1210,10 +1212,8 @@
 			}
 		}
 		.action-btn:first-child {
-		}
-		.action-btn-border {
-			border: 1upx double;
-			margin-right: 10upx;
+			border: 1upx solid;
+			border-top: 1px solid;
 			background-color: rgba(0, 0, 0, 0);
 			&:after {
 				border: none;

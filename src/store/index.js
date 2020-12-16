@@ -49,6 +49,9 @@ const store = new Vuex.Store({
 			if (!theme) {
 				theme = $mConstDataConfig.themeList.filter((item) => item.name === ($mSettingConfig.styleType || 'rf'))[0];
 			}
+			if(!$mSettingConfig.styleUserIsOpen) {
+				theme = $mConstDataConfig.themeList.filter((item) => item.name === ('rf'))[0]
+			}
 			return theme;
 		},
 		// 全局配置

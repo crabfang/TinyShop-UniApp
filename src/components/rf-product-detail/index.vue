@@ -507,9 +507,9 @@
 					class="action-btn-group"
 					v-if="parseInt(this.currentStock || this.product.stock, 10) > 0">
 					<button
-						class="action-btn,action-btn-border"
-						:class="'bg-' + themeColor.name + '.light'"
-						:style="{borderColor: $mColor.hexToRgbWidthOp(themeColor.color, 0.4)}"
+						class="action-btn"
+						:class="'bg-' + themeColor.name + '-light'"
+						:style="{borderColor: $mColor.hexToRgbWidthOp(themeColor.color, 0.5)}"
 						:disabled="buyBtnDisabled"
 						@tap="addCart('cart')">
 						加入购物车
@@ -518,7 +518,7 @@
 					<button
 						:disabled="addCartBtnDisabled"
 						class="action-btn"
-						:class="'bg-' + themeColor.name + '.highlight'"
+						:class="'bg-' + themeColor.name + '-highlight'"
 						:style="{backgroudColor: themeColor.color}"
 						@tap="addCart('buy')">
 						立即购买

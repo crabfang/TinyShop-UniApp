@@ -199,6 +199,7 @@
                     }
                 }, e)
             }, onMenuShareAppMessage: function (n) {
+				console.log("onMenuShareAppMessage:" + JSON.stringify(n))
                 i(p.onMenuShareAppMessage, {
                     complete: function (e) {
                         'favorite' === e.scene ? c('sendAppMessage', {

@@ -40,8 +40,7 @@
 					<button
 						class="cu-btn round shadow"
 						@click="showColorModal"
-						:class="'bg-' + themeColor.name"
-					>
+						:class="'bg-' + themeColor.name">
 						<text class="cuIcon-colorlens"></text> 选择主题
 					</button>
 				</view>

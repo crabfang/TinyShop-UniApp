@@ -276,8 +276,8 @@ export default new Setting(
 	true,	// 开启直播入口
 	true,	// 是否开启loading 加载
 	'shrinkRect', // loading 加载风格
-	true,
-	'red',	// 商城主题
+	false,	//是否可以切换主题
+	'rf',	// 商城主题
 	false,	// 是否开启充值入口
 	true, // 是否开启主页分类
 	true, // 是否开放站点
